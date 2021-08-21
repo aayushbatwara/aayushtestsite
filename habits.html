@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habits</title>
-  
+    <title>Habits</title>  
 </head>
 <body>
-    
+    <h1 style="text-align: center;" id="title">Habit tracking – </h1>
 </body>
+<script>
+    window.onload = fetchDate()
+    function fetchDate(){
+        dateToday = new Date()
+        dateString = dateToday.getDate() + " / " + dateToday.getMonth();
+        document.getElementById("title").innerText += dateString
+    }
+</script>
 </html>
