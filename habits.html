@@ -8,13 +8,35 @@
 </head>
 <body>
     <h1 style="text-align: center;" id="title">Habit tracking – </h1>
+    <div id = "mainDiv"></div>
 </body>
 <script>
-    window.onload = fetchDate()
+    window.onload = function(){
+        fetchDate()
+        fetchData()
+    }
     function fetchDate(){
         dateToday = new Date()
         dateString = " " +  dateToday.getDate() + " / " + (dateToday.getMonth() + 1 );
         document.getElementById("title").innerText += dateString
     }
+    function fetchData(){
+        var xmlhttp = new XMLHttpRequest();   
+        
+        xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          // what to do with response1
+          var mainDiv = document.getElementById("mainDiv"); 
+          console.log(xmlhttp.responseText);
+          mainDiv.innerHTML += xmlhttp.responseText;
+        }
+        }
+        // use POST to send credentials data to database
+        xmlhttp.open("POST", "habits.php", true);   //define request 
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // set req header
+        xmlhttp.send(); // send request
+
+      }
+
 </script>
 </html>
