@@ -13,7 +13,7 @@
     window.onload = fetchDate()
     function fetchDate(){
         dateToday = new Date()
-        dateString = dateToday.getDate() + " / " + dateToday.getMonth();
+        dateString = " " + (dateToday.getDate() + 1) + " / " + dateToday.getMonth();
         document.getElementById("title").innerText += dateString
     }
 </script>
